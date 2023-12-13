@@ -7,9 +7,13 @@ using System.Threading.Tasks;
 
 namespace BookManagementSystem.Model
 {
-     class Genre
+    internal class Genre
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

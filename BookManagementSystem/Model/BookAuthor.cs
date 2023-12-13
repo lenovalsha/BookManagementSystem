@@ -10,10 +10,9 @@ namespace BookManagementSystem.Model
 {
      class BookAuthor
     {
-        [Key, Column(Order = 0)]
-        public int BookId { get; set; }
-
-        [Key, Column(Order = 1)]
-        public int AuthorId { get; set; }
+        public int Id { get; set; }
+        public Book BookId { get; set; }
+        public Author AuthorId { get; set; }
+       
     }
 }

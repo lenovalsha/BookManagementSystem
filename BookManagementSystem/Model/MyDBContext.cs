@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using System.Data.Entity;
+
+//using Microsoft.EntityFrameworkCore;
+
 
 namespace BookManagementSystem.Model
 {
@@ -14,6 +13,6 @@ namespace BookManagementSystem.Model
         public DbSet<Author> Authors { get; set; }
         public DbSet<BookAuthor> BookAuthors { get; set; }
 
-
+        
     }
 }
