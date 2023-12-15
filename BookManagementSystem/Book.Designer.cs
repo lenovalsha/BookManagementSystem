@@ -28,61 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.cmbGenre = new System.Windows.Forms.ComboBox();
+            this.cmbAuthor = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
-            // button1
+            // btnSave
             // 
-            this.button1.Location = new System.Drawing.Point(340, 447);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSave.Location = new System.Drawing.Point(340, 447);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // button2
+            // btnCancel
             // 
-            this.button2.Location = new System.Drawing.Point(259, 447);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancel.Location = new System.Drawing.Point(259, 447);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 1;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // textBox1
+            // txtTitle
             // 
-            this.textBox1.Location = new System.Drawing.Point(117, 157);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(195, 20);
-            this.textBox1.TabIndex = 2;
+            this.txtTitle.Location = new System.Drawing.Point(117, 157);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(195, 20);
+            this.txtTitle.TabIndex = 2;
             // 
-            // comboBox1
+            // cmbGenre
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(117, 183);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(195, 21);
-            this.comboBox1.TabIndex = 3;
+            this.cmbGenre.FormattingEnabled = true;
+            this.cmbGenre.Location = new System.Drawing.Point(117, 183);
+            this.cmbGenre.Name = "cmbGenre";
+            this.cmbGenre.Size = new System.Drawing.Size(195, 21);
+            this.cmbGenre.TabIndex = 3;
             // 
-            // comboBox2
+            // cmbAuthor
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(117, 210);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(195, 21);
-            this.comboBox2.TabIndex = 4;
+            this.cmbAuthor.FormattingEnabled = true;
+            this.cmbAuthor.Location = new System.Drawing.Point(117, 210);
+            this.cmbAuthor.Name = "cmbAuthor";
+            this.cmbAuthor.Size = new System.Drawing.Size(195, 21);
+            this.cmbAuthor.TabIndex = 4;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(112, 246);
+            this.dateTimePicker1.Location = new System.Drawing.Point(117, 237);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.ShowUpDown = true;
+            this.dateTimePicker1.Size = new System.Drawing.Size(195, 20);
             this.dateTimePicker1.TabIndex = 5;
             // 
             // Book
@@ -92,11 +95,11 @@
             this.BackColor = System.Drawing.Color.IndianRed;
             this.ClientSize = new System.Drawing.Size(427, 482);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cmbAuthor);
+            this.Controls.Add(this.cmbGenre);
+            this.Controls.Add(this.txtTitle);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnSave);
             this.Name = "Book";
             this.Text = "Book";
             this.ResumeLayout(false);
@@ -106,11 +109,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TextBox txtTitle;
+        private System.Windows.Forms.ComboBox cmbGenre;
+        private System.Windows.Forms.ComboBox cmbAuthor;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

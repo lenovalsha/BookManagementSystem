@@ -18,20 +18,8 @@ namespace BookManagementSystem
         {
             InitializeComponent();
             dbContext = new MyDBContext();
-            RefreshGenre();
         }
-        private void RefreshGenre()
-        {
-            if (dbContext.Genres != null)
-            {
-                var genres = dbContext.Genres.ToList();
-
-                foreach (Genre gen in genres)
-                {
-                    cmbGenres.Items.Add(gen); //make sure that in the class you are overriding the string to return name
-                }
-            }
-        }
+        
         private void btnCreateGenre_Click(object sender, EventArgs e)
         {
             if(txtGenre.Text != string.Empty)
@@ -43,7 +31,6 @@ namespace BookManagementSystem
                 dbContext.Genres.Add(newGenre); // add it to the context
                 dbContext.SaveChanges(); // this looks at all the changes in the context and refreshes it in the database
                 MessageBox.Show(newGenre.Name + " has been added!");
-                RefreshGenre() ;
             }
         }
 
@@ -51,22 +38,7 @@ namespace BookManagementSystem
         {
 
         }
-        private void btnCreateBook_Click(object sender, EventArgs e)
-        {
-            if (txtBook.Text != string.Empty && cmbGenres.SelectedItem != null)
-            {
-                var selectedGenre = cmbGenres.SelectedItem as Model.Genre;
-                var newBook = new Model.Book
-                {
-                    Title = txtBook.Text,
-                    GenreId = (cmbGenres.SelectedItem as Model.Genre).Id
-                   
-                };
-                dbContext.Books.Add(newBook);
-                dbContext.SaveChanges();
-            }
-        }
-
+       
         private void btnShowBooks_Click(object sender, EventArgs e)
         {
             BindingSource bindingSource = new BindingSource();

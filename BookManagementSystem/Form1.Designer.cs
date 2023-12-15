@@ -30,9 +30,6 @@
         {
             this.txtGenre = new System.Windows.Forms.TextBox();
             this.btnCreateGenre = new System.Windows.Forms.Button();
-            this.btnCreateBook = new System.Windows.Forms.Button();
-            this.txtBook = new System.Windows.Forms.TextBox();
-            this.cmbGenres = new System.Windows.Forms.ComboBox();
             this.dgvContent = new System.Windows.Forms.DataGridView();
             this.btnShowBooks = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -57,31 +54,6 @@
             this.btnCreateGenre.Text = "Create Genre";
             this.btnCreateGenre.UseVisualStyleBackColor = true;
             this.btnCreateGenre.Click += new System.EventHandler(this.btnCreateGenre_Click);
-            // 
-            // btnCreateBook
-            // 
-            this.btnCreateBook.Location = new System.Drawing.Point(39, 227);
-            this.btnCreateBook.Name = "btnCreateBook";
-            this.btnCreateBook.Size = new System.Drawing.Size(75, 23);
-            this.btnCreateBook.TabIndex = 3;
-            this.btnCreateBook.Text = "button1";
-            this.btnCreateBook.UseVisualStyleBackColor = true;
-            this.btnCreateBook.Click += new System.EventHandler(this.btnCreateBook_Click);
-            // 
-            // txtBook
-            // 
-            this.txtBook.Location = new System.Drawing.Point(27, 201);
-            this.txtBook.Name = "txtBook";
-            this.txtBook.Size = new System.Drawing.Size(100, 20);
-            this.txtBook.TabIndex = 2;
-            // 
-            // cmbGenres
-            // 
-            this.cmbGenres.FormattingEnabled = true;
-            this.cmbGenres.Location = new System.Drawing.Point(12, 174);
-            this.cmbGenres.Name = "cmbGenres";
-            this.cmbGenres.Size = new System.Drawing.Size(141, 21);
-            this.cmbGenres.TabIndex = 4;
             // 
             // dgvContent
             // 
@@ -137,9 +109,6 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnShowBooks);
             this.Controls.Add(this.dgvContent);
-            this.Controls.Add(this.cmbGenres);
-            this.Controls.Add(this.btnCreateBook);
-            this.Controls.Add(this.txtBook);
             this.Controls.Add(this.btnCreateGenre);
             this.Controls.Add(this.txtGenre);
             this.Name = "Form1";
@@ -155,9 +124,6 @@
 
         private System.Windows.Forms.TextBox txtGenre;
         private System.Windows.Forms.Button btnCreateGenre;
-        private System.Windows.Forms.Button btnCreateBook;
-        private System.Windows.Forms.TextBox txtBook;
-        private System.Windows.Forms.ComboBox cmbGenres;
         private System.Windows.Forms.DataGridView dgvContent;
         private System.Windows.Forms.Button btnShowBooks;
         private System.Windows.Forms.Button button1;
