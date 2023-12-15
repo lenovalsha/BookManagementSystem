@@ -126,43 +126,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddBook.Designer.cs">
+      <DependentUpon>AddBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Book.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Book.Designer.cs">
+      <DependentUpon>Book.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202312130334161_init1.cs" />
-    <Compile Include="Migrations\202312130334161_init1.designer.cs">
-      <DependentUpon>202312130334161_init1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312130343282_init2.cs" />
-    <Compile Include="Migrations\202312130343282_init2.designer.cs">
-      <DependentUpon>202312130343282_init2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312130346319_init3.cs" />
-    <Compile Include="Migrations\202312130346319_init3.designer.cs">
-      <DependentUpon>202312130346319_init3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312130350155_init4.cs" />
-    <Compile Include="Migrations\202312130350155_init4.designer.cs">
-      <DependentUpon>202312130350155_init4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312130354230_init5.cs" />
-    <Compile Include="Migrations\202312130354230_init5.designer.cs">
-      <DependentUpon>202312130354230_init5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312130402075_init6.cs" />
-    <Compile Include="Migrations\202312130402075_init6.designer.cs">
-      <DependentUpon>202312130402075_init6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312130450432_init7.cs" />
-    <Compile Include="Migrations\202312130450432_init7.designer.cs">
-      <DependentUpon>202312130450432_init7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312130453151_init8.cs" />
-    <Compile Include="Migrations\202312130453151_init8.designer.cs">
-      <DependentUpon>202312130453151_init8.cs</DependentUpon>
+    <Compile Include="Migrations\202312150323143_init.cs" />
+    <Compile Include="Migrations\202312150323143_init.designer.cs">
+      <DependentUpon>202312150323143_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Author.cs" />
@@ -172,32 +156,17 @@
     <Compile Include="Model\MyDBContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddBook.resx">
+      <DependentUpon>AddBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Book.resx">
+      <DependentUpon>Book.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312130334161_init1.resx">
-      <DependentUpon>202312130334161_init1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312130343282_init2.resx">
-      <DependentUpon>202312130343282_init2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312130346319_init3.resx">
-      <DependentUpon>202312130346319_init3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312130350155_init4.resx">
-      <DependentUpon>202312130350155_init4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312130354230_init5.resx">
-      <DependentUpon>202312130354230_init5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312130402075_init6.resx">
-      <DependentUpon>202312130402075_init6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312130450432_init7.resx">
-      <DependentUpon>202312130450432_init7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312130453151_init8.resx">
-      <DependentUpon>202312130453151_init8.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202312150323143_init.resx">
+      <DependentUpon>202312150323143_init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

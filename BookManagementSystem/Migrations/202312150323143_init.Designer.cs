@@ -7,13 +7,13 @@ namespace BookManagementSystem.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class init8 : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(init8));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "202312130453151_init8"; }
+            get { return "202312150323143_init"; }
         }
         
         string IMigrationMetadata.Source

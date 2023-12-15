@@ -14,7 +14,10 @@ namespace BookManagementSystem.Model
         public Genre Genre{ get; set; }
         public int GenreId { get; set; }
 
+        public int PublishYear { get; set; }
 
+        public Author Author { get; set; }
+        public int AuthorId { get; set; }
 
         public override string ToString()
         {

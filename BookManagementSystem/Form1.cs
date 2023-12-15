@@ -51,7 +51,6 @@ namespace BookManagementSystem
         {
 
         }
-
         private void btnCreateBook_Click(object sender, EventArgs e)
         {
             if (txtBook.Text != string.Empty && cmbGenres.SelectedItem != null)
@@ -66,6 +65,25 @@ namespace BookManagementSystem
                 dbContext.Books.Add(newBook);
                 dbContext.SaveChanges();
             }
+        }
+
+        private void btnShowBooks_Click(object sender, EventArgs e)
+        {
+            BindingSource bindingSource = new BindingSource();
+            var qry = from b in dbContext.Books
+                      orderby b.Title
+                      select new { b.Title, b.Genre};
+
+            dgvContent.DataSource = qry.ToList();
+            //dgvContent.Columns[0].Visible = false;
+            dgvContent.Refresh();
+        }
+
+        private void btnAddBook_Click(object sender, EventArgs e)
+        {
+
+            Book book = new Book();
+            book.Show();
         }
     }
 }

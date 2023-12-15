@@ -12,7 +12,7 @@ namespace BookManagementSystem.Model
     {
         public int Id { get; set; }
         public Book BookId { get; set; }
-        public Author AuthorId { get; set; }
-       
+        public Author Author { get; set; }
+        public int AuthorId { get; set; }
     }
 }
