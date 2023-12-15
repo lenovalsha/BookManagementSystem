@@ -15,7 +15,6 @@ namespace BookManagementSystem.Model
         public string LastName { get; set; }
         public string Address { get; set; }
         private string _email;
-        private string _phone;
         public string Email
         {
             get { return _email; }
@@ -28,18 +27,19 @@ namespace BookManagementSystem.Model
                 _email = value;
             }
         }
+        public string Phone { get; set; }
 
-        public string Phone
-        {
-            get { return _phone; }
-            set
-            {
-                if (!IsValidPhoneNumber(value))
-                {MessageBox.Show("Invalid phone number.");
-                }
-                _phone = value;
-            }
-        }
+        //public string Phone
+        //{
+        //    get { return _phone; }
+        //    set
+        //    {
+        //        if (!IsValidPhoneNumber(value))
+        //        {MessageBox.Show("Invalid phone number.");
+        //        }
+        //        _phone = value;
+        //    }
+        //}
 
         public override string ToString()
         {
@@ -50,12 +50,6 @@ namespace BookManagementSystem.Model
             string pattern = @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
             return Regex.IsMatch(email, pattern);
         }
-        private bool IsValidPhoneNumber(string phone)
-        {
-            // Add your phone number validation logic here (if needed)
-            string pattern = @"^\d{3}-\d{3}-\d{4}$";
-            return Regex.IsMatch(phone, pattern);
-            // For simplicity, this example assumes a basic phone number format
-        }
+       
     }
 }

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -35,10 +36,21 @@ namespace BookManagementSystem
             txtAddress.Text = string.Empty;
 
         }
-       
+        private bool IsValidPhoneNumber(string phone)
+        {
+            // Add your phone number validation logic here (if needed)
+            string pattern = @"^\d{3}-\d{3}-\d{4}$";
+            return Regex.IsMatch(phone, pattern);
+            // For simplicity, this example assumes a basic phone number format
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(txtFName.Text != string.Empty && txtLName.Text !=string.Empty)
+           
+            if(!IsValidPhoneNumber(txtPhone.Text))
+            {
+                MessageBox.Show("Please enter a valid Phone number");
+            }
+            if (txtFName.Text != string.Empty && txtLName.Text !=string.Empty && IsValidPhoneNumber(txtPhone.Text))
             {
                 var newAuthor = new Model.Author
                 {

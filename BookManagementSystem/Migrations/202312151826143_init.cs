@@ -12,23 +12,13 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        FirstName = c.String(),
+                        LastName = c.String(),
+                        Address = c.String(),
+                        Email = c.String(),
+                        Phone = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.BookAuthors",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        AuthorId = c.Int(nullable: false),
-                        BookId_Id = c.Int(),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Authors", t => t.AuthorId, cascadeDelete: true)
-                .ForeignKey("dbo.Books", t => t.BookId_Id)
-                .Index(t => t.AuthorId)
-                .Index(t => t.BookId_Id);
             
             CreateTable(
                 "dbo.Books",
@@ -59,17 +49,12 @@
         
         public override void Down()
         {
-            DropForeignKey("dbo.BookAuthors", "BookId_Id", "dbo.Books");
             DropForeignKey("dbo.Books", "GenreId", "dbo.Genres");
             DropForeignKey("dbo.Books", "AuthorId", "dbo.Authors");
-            DropForeignKey("dbo.BookAuthors", "AuthorId", "dbo.Authors");
             DropIndex("dbo.Books", new[] { "AuthorId" });
             DropIndex("dbo.Books", new[] { "GenreId" });
-            DropIndex("dbo.BookAuthors", new[] { "BookId_Id" });
-            DropIndex("dbo.BookAuthors", new[] { "AuthorId" });
             DropTable("dbo.Genres");
             DropTable("dbo.Books");
-            DropTable("dbo.BookAuthors");
             DropTable("dbo.Authors");
         }
     }

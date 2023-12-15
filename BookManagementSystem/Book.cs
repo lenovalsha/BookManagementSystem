@@ -35,7 +35,7 @@ namespace BookManagementSystem
             {
                 var genres = MyDBContext.Genres.ToList();
 
-                foreach (Genre gen in genres)
+                foreach (Model.Genre gen in genres)
                 {
                     cmbGenre.Items.Add(gen); //make sure that in the class you are overriding the string to return name
                 }
@@ -49,11 +49,17 @@ namespace BookManagementSystem
 
                 foreach (Model.Author aut in authors)
                 {
-                    cmbGenre.Items.Add(aut); //make sure that in the class you are overriding the string to return name
+                    cmbAuthor.Items.Add(aut); //make sure that in the class you are overriding the string to return name
                 }
             }
         }
+        private void Refresh()
+        {
+            txtTitle.Text = string.Empty;
+            cmbGenre.Text = string.Empty;
+            cmbAuthor.Text = string.Empty;
 
+        }
         private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
@@ -67,20 +73,22 @@ namespace BookManagementSystem
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (txtTitle.Text != string.Empty && cmbGenre.SelectedItem != null && cmbAuthor.SelectedItem !=null && dateTimePicker1.Value != null)
+            if (txtTitle.Text != string.Empty && cmbGenre.SelectedItem != null && cmbAuthor.SelectedItem != null && dateTimePicker1.Value != null)
             {
                 var selectedGenre = cmbGenre.SelectedItem as Model.Genre;
                 var newBook = new Model.Book
                 {
                     Title = txtTitle.Text,
                     GenreId = (cmbGenre.SelectedItem as Model.Genre).Id,
-                    AuthorId = (cmbGenre.SelectedItem as Model.Author).Id,
+                    AuthorId = (cmbAuthor.SelectedItem as Model.Author).Id,
                     PublishYear = dateTimePicker1.Value.Year
 
                 };
                 MyDBContext.Books.Add(newBook);
                 MyDBContext.SaveChanges();
-            }else
+                MessageBox.Show(newBook.Title + " has been added!");
+            }
+            else
                 MessageBox.Show("Please make sure all data is entered correctly");
         }
     }
