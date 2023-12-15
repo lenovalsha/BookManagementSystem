@@ -15,6 +15,8 @@ namespace BookManagementSystem
     {
         private MyDBContext dbContext;
         BindingSource bindingSource;
+        bool isSelected = false;
+        int selectedBookId;
         public Form1()
         {
             InitializeComponent();
@@ -34,7 +36,6 @@ namespace BookManagementSystem
                 MessageBox.Show(newGenre.Name + " has been added!");
             }
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -42,15 +43,9 @@ namespace BookManagementSystem
 
         private void btnShowBooks_Click(object sender, EventArgs e)
         {
-            bindingSource = new BindingSource();
-            var qry = from b in dbContext.Books
-                      orderby b.Title
-                      select new {b.Id, b.Title, b.Genre, b.Author, b.PublishYear };
-
-            dgvContent.DataSource = qry.ToList();
-            dgvContent.Columns[0].Visible = false;
-            dgvContent.Refresh();
+           ShowAllBooks();
         }
+
 
         private void btnAddBook_Click(object sender, EventArgs e)
         {
@@ -126,7 +121,37 @@ namespace BookManagementSystem
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            int selectedBookId = -1; // Initialize to a default value or handle the case where it's not set
+            SelectedRow();
+            if (isSelected)
+            {
+                Book bookForm = new Book(selectedBookId);
+                bookForm.ShowDialog();
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            SelectedRow();
+            if (isSelected)
+            {
+                var b = dbContext.Books.Find(selectedBookId);
+                DialogResult result = MessageBox.Show("You are about to delete " + b.Title + " . Do you want to continue?", "Warning", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    dbContext.Books.Remove(b);
+                    dbContext.SaveChanges();
+                    ShowAllBooks();
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+        }
+        private void SelectedRow()
+        {
+            selectedBookId = -1; // Initialize to a default value or handle the case where it's not set
 
             var selectedRowIndex = dgvContent.SelectedCells[0].RowIndex;
 
@@ -138,15 +163,26 @@ namespace BookManagementSystem
                 // Check if the cell value is not null and can be converted to an integer
                 if (cell.Value != null && int.TryParse(cell.Value.ToString(), out selectedBookId))
                 {
-                    Book bookForm = new Book(selectedBookId);
-                    bookForm.ShowDialog();
+                    isSelected = true;
                 }
                 else
                 {
                     // Handle the case where the conversion fails or the value is null
+                    isSelected = false;
                     Console.WriteLine("Failed to get a valid book ID.");
                 }
             }
+        }
+        private void ShowAllBooks()
+        {
+            bindingSource = new BindingSource();
+            var qry = from b in dbContext.Books
+                      orderby b.Title
+                      select new { b.Id, b.Title, b.Genre, b.Author, b.PublishYear };
+
+            dgvContent.DataSource = qry.ToList();
+            dgvContent.Columns[0].Visible = false;
+            dgvContent.Refresh();
         }
     }
 }

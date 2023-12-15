@@ -40,6 +40,7 @@ namespace BookManagementSystem
             dbContext = new MyDBContext();
             RefreshAuthor();
             RefreshGenre();
+            lblFormTitle.Text = "Editing...";
             f = dbContext.Books.Find(id);
             if (f != null)
             {
@@ -51,8 +52,6 @@ namespace BookManagementSystem
                 isUpdating = true;
             }
         }
-
-
         private void RefreshGenre()
         {
             if (dbContext.Genres != null)
@@ -126,8 +125,15 @@ namespace BookManagementSystem
                     };
                     dbContext.Books.Add(newBook);
                     dbContext.SaveChanges();
-                    MessageBox.Show(newBook.Title + " has been added!");
+                   DialogResult result = MessageBox.Show(newBook.Title + " has been added! Do you want to add another book?","Message",MessageBoxButtons.YesNo);
+                    if(result == DialogResult.Yes)
+                    {
                     Refresh();
+                        
+                    }else
+                    {
+                        this.Close();
+                    }
                 }
             }
             else

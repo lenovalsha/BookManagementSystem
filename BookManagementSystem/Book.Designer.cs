@@ -34,7 +34,7 @@
             this.cmbGenre = new System.Windows.Forms.ComboBox();
             this.cmbAuthor = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblFormTitle = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -93,15 +93,15 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(195, 20);
             this.dateTimePicker1.TabIndex = 5;
             // 
-            // label6
+            // lblFormTitle
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(79, 30);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(152, 25);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "ADD A BOOK";
+            this.lblFormTitle.AutoSize = true;
+            this.lblFormTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormTitle.Location = new System.Drawing.Point(54, 25);
+            this.lblFormTitle.Name = "lblFormTitle";
+            this.lblFormTitle.Size = new System.Drawing.Size(191, 25);
+            this.lblFormTitle.TabIndex = 13;
+            this.lblFormTitle.Text = "ADDING A BOOK";
             // 
             // label1
             // 
@@ -149,7 +149,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblFormTitle);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.cmbAuthor);
             this.Controls.Add(this.cmbGenre);
@@ -171,7 +171,7 @@
         private System.Windows.Forms.ComboBox cmbGenre;
         private System.Windows.Forms.ComboBox cmbAuthor;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblFormTitle;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
