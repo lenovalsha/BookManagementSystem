@@ -45,10 +45,10 @@ namespace BookManagementSystem
             bindingSource = new BindingSource();
             var qry = from b in dbContext.Books
                       orderby b.Title
-                      select new { b.Title, b.Genre, b.Author, b.PublishYear };
+                      select new {b.Id, b.Title, b.Genre, b.Author, b.PublishYear };
 
             dgvContent.DataSource = qry.ToList();
-            //dgvContent.Columns[0].Visible = false;
+            dgvContent.Columns[0].Visible = false;
             dgvContent.Refresh();
         }
 
@@ -114,9 +114,6 @@ namespace BookManagementSystem
                 dbContext.Authors.Add(qry);
                 dbContext.SaveChanges();
             }
-
-
-           
         }
 
         private void btnDeleteAllAuthors_Click(object sender, EventArgs e)
@@ -124,7 +121,32 @@ namespace BookManagementSystem
             var qry = dbContext.Authors.ToList();
             dbContext.Authors.RemoveRange(qry);
             dbContext.SaveChanges();
-                      
+
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            int selectedBookId = -1; // Initialize to a default value or handle the case where it's not set
+
+            var selectedRowIndex = dgvContent.SelectedCells[0].RowIndex;
+
+            if (selectedRowIndex >= 0 && selectedRowIndex < dgvContent.Rows.Count)
+            {
+                // Assuming the book ID is stored in the first cell of the selected row
+                DataGridViewCell cell = dgvContent.Rows[selectedRowIndex].Cells[0];
+
+                // Check if the cell value is not null and can be converted to an integer
+                if (cell.Value != null && int.TryParse(cell.Value.ToString(), out selectedBookId))
+                {
+                    Book bookForm = new Book(selectedBookId);
+                    bookForm.ShowDialog();
+                }
+                else
+                {
+                    // Handle the case where the conversion fails or the value is null
+                    Console.WriteLine("Failed to get a valid book ID.");
+                }
+            }
         }
     }
 }

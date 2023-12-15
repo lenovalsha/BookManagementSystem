@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,11 +16,13 @@ namespace BookManagementSystem
 {
     public partial class Book : Form
     {
-        MyDBContext MyDBContext;
+        MyDBContext dbContext;
+        bool isUpdating = false;
+        Model.Book f;
         public Book()
         {
             InitializeComponent();
-            MyDBContext = new MyDBContext();
+            dbContext = new MyDBContext();
             RefreshAuthor();
             RefreshGenre();
             #region DateTimePicker
@@ -29,11 +32,32 @@ namespace BookManagementSystem
             #endregion
 
         }
+        public Book(int? id)
+        {
+          
+            InitializeComponent();
+
+            dbContext = new MyDBContext();
+            RefreshAuthor();
+            RefreshGenre();
+            f = dbContext.Books.Find(id);
+            if (f != null)
+            {
+                txtTitle.Text = f.Title;
+                cmbGenre.Text = f.Genre.Name;
+                cmbAuthor.Text = f.Author.ToString();
+                DateTime dateTime = new DateTime(f.PublishYear, 1, 1); // Assuming January 1st of the given year
+                dateTimePicker1.Value = dateTime;
+                isUpdating = true;
+            }
+        }
+
+
         private void RefreshGenre()
         {
-            if (MyDBContext.Genres != null)
+            if (dbContext.Genres != null)
             {
-                var genres = MyDBContext.Genres.ToList();
+                var genres = dbContext.Genres.ToList();
 
                 foreach (Model.Genre gen in genres)
                 {
@@ -43,9 +67,9 @@ namespace BookManagementSystem
         }
         private void RefreshAuthor()
         {
-            if (MyDBContext.Authors != null)
+            if (dbContext.Authors != null)
             {
-                var authors = MyDBContext.Authors.ToList();
+                var authors = dbContext.Authors.ToList();
 
                 foreach (Model.Author aut in authors)
                 {
@@ -73,23 +97,42 @@ namespace BookManagementSystem
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+
+
             if (txtTitle.Text != string.Empty && cmbGenre.SelectedItem != null && cmbAuthor.SelectedItem != null && dateTimePicker1.Value != null)
             {
-                var selectedGenre = cmbGenre.SelectedItem as Model.Genre;
-                var newBook = new Model.Book
-                {
-                    Title = txtTitle.Text,
-                    GenreId = (cmbGenre.SelectedItem as Model.Genre).Id,
-                    AuthorId = (cmbAuthor.SelectedItem as Model.Author).Id,
-                    PublishYear = dateTimePicker1.Value.Year
+                int genreId = (cmbGenre.SelectedItem as Model.Genre).Id;
+                int authorId = (cmbAuthor.SelectedItem as Model.Author).Id;
 
-                };
-                MyDBContext.Books.Add(newBook);
-                MyDBContext.SaveChanges();
-                MessageBox.Show(newBook.Title + " has been added!");
+                if (isUpdating)
+                {
+                    f.Title = txtTitle.Text;
+                    f.GenreId = genreId;
+                    f.AuthorId = authorId;
+                    f.PublishYear = dateTimePicker1.Value.Year;
+                    dbContext.SaveChanges();
+                    MessageBox.Show("Updated");
+                    this.Close();
+                }
+                else
+                {
+                    var newBook = new Model.Book
+                    {
+                        Title = txtTitle.Text,
+                        GenreId = genreId,
+                        AuthorId = authorId,
+                        PublishYear = dateTimePicker1.Value.Year
+
+                    };
+                    dbContext.Books.Add(newBook);
+                    dbContext.SaveChanges();
+                    MessageBox.Show(newBook.Title + " has been added!");
+                    Refresh();
+                }
             }
             else
                 MessageBox.Show("Please make sure all data is entered correctly");
+
         }
     }
 }
