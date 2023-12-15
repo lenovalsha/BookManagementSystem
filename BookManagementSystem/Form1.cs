@@ -57,5 +57,11 @@ namespace BookManagementSystem
             Book book = new Book();
             book.Show();
         }
+
+        private void btnAddAuthor_Click(object sender, EventArgs e)
+        {
+            Author author = new Author();
+            author.Show();
+        }
     }
 }

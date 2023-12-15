@@ -47,9 +47,9 @@ namespace BookManagementSystem
             {
                 var authors = MyDBContext.Authors.ToList();
 
-                foreach (Author author in authors)
+                foreach (Model.Author aut in authors)
                 {
-                    cmbGenre.Items.Add(author); //make sure that in the class you are overriding the string to return name
+                    cmbGenre.Items.Add(aut); //make sure that in the class you are overriding the string to return name
                 }
             }
         }

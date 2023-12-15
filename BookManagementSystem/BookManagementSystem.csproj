@@ -126,11 +126,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddBook.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Author.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddBook.Designer.cs">
-      <DependentUpon>AddBook.cs</DependentUpon>
+    <Compile Include="Author.Designer.cs">
+      <DependentUpon>Author.cs</DependentUpon>
     </Compile>
     <Compile Include="Book.cs">
       <SubType>Form</SubType>
@@ -152,6 +152,10 @@
     <Compile Include="Migrations\202312150325184_init1.designer.cs">
       <DependentUpon>202312150325184_init1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202312150402482_init2.cs" />
+    <Compile Include="Migrations\202312150402482_init2.designer.cs">
+      <DependentUpon>202312150402482_init2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Author.cs" />
     <Compile Include="Model\Book.cs" />
@@ -159,8 +163,8 @@
     <Compile Include="Model\MyDBContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddBook.resx">
-      <DependentUpon>AddBook.cs</DependentUpon>
+    <EmbeddedResource Include="Author.resx">
+      <DependentUpon>Author.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Book.resx">
       <DependentUpon>Book.cs</DependentUpon>
@@ -173,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202312150325184_init1.resx">
       <DependentUpon>202312150325184_init1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202312150402482_init2.resx">
+      <DependentUpon>202312150402482_init2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
