@@ -46,14 +46,14 @@
             // 
             // txtGenre
             // 
-            this.txtGenre.Location = new System.Drawing.Point(13, 46);
+            this.txtGenre.Location = new System.Drawing.Point(12, 60);
             this.txtGenre.Name = "txtGenre";
             this.txtGenre.Size = new System.Drawing.Size(134, 20);
             this.txtGenre.TabIndex = 0;
             // 
             // btnCreateGenre
             // 
-            this.btnCreateGenre.Location = new System.Drawing.Point(12, 72);
+            this.btnCreateGenre.Location = new System.Drawing.Point(11, 86);
             this.btnCreateGenre.Name = "btnCreateGenre";
             this.btnCreateGenre.Size = new System.Drawing.Size(134, 23);
             this.btnCreateGenre.TabIndex = 1;
@@ -82,7 +82,7 @@
             // 
             // btnAddAuthor
             // 
-            this.btnAddAuthor.Location = new System.Drawing.Point(12, 130);
+            this.btnAddAuthor.Location = new System.Drawing.Point(11, 144);
             this.btnAddAuthor.Name = "btnAddAuthor";
             this.btnAddAuthor.Size = new System.Drawing.Size(134, 23);
             this.btnAddAuthor.TabIndex = 8;
@@ -99,7 +99,7 @@
             // 
             // btnAddBook
             // 
-            this.btnAddBook.Location = new System.Drawing.Point(12, 101);
+            this.btnAddBook.Location = new System.Drawing.Point(11, 115);
             this.btnAddBook.Name = "btnAddBook";
             this.btnAddBook.Size = new System.Drawing.Size(134, 23);
             this.btnAddBook.TabIndex = 9;
