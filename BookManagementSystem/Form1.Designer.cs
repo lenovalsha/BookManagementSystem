@@ -46,14 +46,14 @@
             // 
             // txtGenre
             // 
-            this.txtGenre.Location = new System.Drawing.Point(13, 99);
+            this.txtGenre.Location = new System.Drawing.Point(13, 46);
             this.txtGenre.Name = "txtGenre";
             this.txtGenre.Size = new System.Drawing.Size(134, 20);
             this.txtGenre.TabIndex = 0;
             // 
             // btnCreateGenre
             // 
-            this.btnCreateGenre.Location = new System.Drawing.Point(12, 125);
+            this.btnCreateGenre.Location = new System.Drawing.Point(12, 72);
             this.btnCreateGenre.Name = "btnCreateGenre";
             this.btnCreateGenre.Size = new System.Drawing.Size(134, 23);
             this.btnCreateGenre.TabIndex = 1;
@@ -65,14 +65,14 @@
             // 
             this.dgvContent.AllowUserToOrderColumns = true;
             this.dgvContent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvContent.Location = new System.Drawing.Point(12, 237);
+            this.dgvContent.Location = new System.Drawing.Point(11, 199);
             this.dgvContent.Name = "dgvContent";
             this.dgvContent.Size = new System.Drawing.Size(520, 313);
             this.dgvContent.TabIndex = 5;
             // 
             // btnShowBooks
             // 
-            this.btnShowBooks.Location = new System.Drawing.Point(12, 211);
+            this.btnShowBooks.Location = new System.Drawing.Point(11, 173);
             this.btnShowBooks.Name = "btnShowBooks";
             this.btnShowBooks.Size = new System.Drawing.Size(135, 20);
             this.btnShowBooks.TabIndex = 6;
@@ -82,7 +82,7 @@
             // 
             // btnAddAuthor
             // 
-            this.btnAddAuthor.Location = new System.Drawing.Point(12, 183);
+            this.btnAddAuthor.Location = new System.Drawing.Point(12, 130);
             this.btnAddAuthor.Name = "btnAddAuthor";
             this.btnAddAuthor.Size = new System.Drawing.Size(134, 23);
             this.btnAddAuthor.TabIndex = 8;
@@ -92,14 +92,14 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(150, 212);
+            this.txtSearch.Location = new System.Drawing.Point(152, 173);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(269, 20);
             this.txtSearch.TabIndex = 7;
             // 
             // btnAddBook
             // 
-            this.btnAddBook.Location = new System.Drawing.Point(12, 154);
+            this.btnAddBook.Location = new System.Drawing.Point(12, 101);
             this.btnAddBook.Name = "btnAddBook";
             this.btnAddBook.Size = new System.Drawing.Size(134, 23);
             this.btnAddBook.TabIndex = 9;
@@ -109,7 +109,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(425, 212);
+            this.btnSearch.Location = new System.Drawing.Point(424, 173);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(107, 20);
             this.btnSearch.TabIndex = 10;
@@ -119,7 +119,7 @@
             // 
             // btnGenerateGenre
             // 
-            this.btnGenerateGenre.Location = new System.Drawing.Point(12, 12);
+            this.btnGenerateGenre.Location = new System.Drawing.Point(71, 15);
             this.btnGenerateGenre.Name = "btnGenerateGenre";
             this.btnGenerateGenre.Size = new System.Drawing.Size(109, 23);
             this.btnGenerateGenre.TabIndex = 11;
@@ -129,7 +129,7 @@
             // 
             // btnGenerateAuthors
             // 
-            this.btnGenerateAuthors.Location = new System.Drawing.Point(127, 12);
+            this.btnGenerateAuthors.Location = new System.Drawing.Point(186, 15);
             this.btnGenerateAuthors.Name = "btnGenerateAuthors";
             this.btnGenerateAuthors.Size = new System.Drawing.Size(109, 23);
             this.btnGenerateAuthors.TabIndex = 12;
@@ -139,9 +139,9 @@
             // 
             // btnDeleteAllAuthors
             // 
-            this.btnDeleteAllAuthors.Location = new System.Drawing.Point(242, 9);
+            this.btnDeleteAllAuthors.Location = new System.Drawing.Point(301, 15);
             this.btnDeleteAllAuthors.Name = "btnDeleteAllAuthors";
-            this.btnDeleteAllAuthors.Size = new System.Drawing.Size(134, 26);
+            this.btnDeleteAllAuthors.Size = new System.Drawing.Size(134, 23);
             this.btnDeleteAllAuthors.TabIndex = 13;
             this.btnDeleteAllAuthors.Text = "Delete All Authors";
             this.btnDeleteAllAuthors.UseVisualStyleBackColor = true;
@@ -149,7 +149,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(301, 556);
+            this.btnEdit.Location = new System.Drawing.Point(337, 518);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(94, 28);
             this.btnEdit.TabIndex = 14;
@@ -159,7 +159,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(438, 556);
+            this.btnDelete.Location = new System.Drawing.Point(437, 518);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(94, 28);
             this.btnDelete.TabIndex = 15;
@@ -171,7 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(563, 627);
+            this.ClientSize = new System.Drawing.Size(543, 596);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDeleteAllAuthors);

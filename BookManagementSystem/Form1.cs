@@ -43,7 +43,7 @@ namespace BookManagementSystem
 
         private void btnShowBooks_Click(object sender, EventArgs e)
         {
-           ShowAllBooks();
+            ShowAllBooks();
         }
 
 
@@ -147,31 +147,35 @@ namespace BookManagementSystem
                     return;
                 }
             }
-
         }
         private void SelectedRow()
         {
-            selectedBookId = -1; // Initialize to a default value or handle the case where it's not set
 
-            var selectedRowIndex = dgvContent.SelectedCells[0].RowIndex;
-
-            if (selectedRowIndex >= 0 && selectedRowIndex < dgvContent.Rows.Count)
+            if (dgvContent.Rows.Count > 0)
             {
-                // Assuming the book ID is stored in the first cell of the selected row
-                DataGridViewCell cell = dgvContent.Rows[selectedRowIndex].Cells[0];
 
-                // Check if the cell value is not null and can be converted to an integer
-                if (cell.Value != null && int.TryParse(cell.Value.ToString(), out selectedBookId))
+                var selectedRowIndex = dgvContent.SelectedCells[0].RowIndex;
+                if (selectedRowIndex >= 0 && selectedRowIndex < dgvContent.Rows.Count)
                 {
-                    isSelected = true;
-                }
-                else
-                {
-                    // Handle the case where the conversion fails or the value is null
-                    isSelected = false;
-                    Console.WriteLine("Failed to get a valid book ID.");
+                    // Assuming the book ID is stored in the first cell of the selected row
+                    DataGridViewCell cell = dgvContent.Rows[selectedRowIndex].Cells[0];
+
+                    // Check if the cell value is not null and can be converted to an integer
+                    if (cell.Value != null && int.TryParse(cell.Value.ToString(), out selectedBookId))
+                    {
+                        isSelected = true;
+                    }
+                    else
+                    {
+                        // Handle the case where the conversion fails or the value is null
+                        isSelected = false;
+                        MessageBox.Show("Please select a row");
+                    }
                 }
             }
+            else
+                MessageBox.Show("Please select a row");
+
         }
         private void ShowAllBooks()
         {
